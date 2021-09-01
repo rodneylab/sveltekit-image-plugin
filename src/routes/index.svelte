@@ -3,13 +3,28 @@
    * @type {import('@sveltejs/kit').Load}
    */
   export async function load({ fetch }) {
-    const url = `./index.json`;
-    const response = await fetch(url);
+    const url = './index.json';
+    const postsPromise = fetch(url);
+    const placeholdersPromise = fetch('/api/image-placeholders.json', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        images: ['me.jpg'],
+      }),
+    });
 
-    if (response.ok) {
-      const { posts } = await response.json();
+    const [postsResponse, placeholdersResponse] = await Promise.all([
+      postsPromise,
+      placeholdersPromise,
+    ]);
+
+    if (postsResponse.ok && placeholdersResponse.ok) {
+      const { posts } = await postsResponse.json();
       return {
-        props: { posts },
+        props: { posts, ...(await placeholdersResponse.json()) },
       };
     }
 
@@ -18,12 +33,25 @@
 </script>
 
 <script>
+  import { browser } from '$app/env';
+  import meImageSrcsetWebp from '$lib/assets/me.jpg?w=1344;672;336&format=webp&srcset';
+  import meImageSrcset from '$lib/assets/me.jpg?w=1344;672;336&srcset';
+  import meImage from '$lib/assets/me.jpg?w=672';
   import BlogRoll from '$lib/components/BlogRoll.svelte';
   import Card from '$lib/components/Card.svelte';
   import SEO from '$lib/components/SEO/index.svelte';
   import website from '$lib/config/website';
+  import { onMount } from 'svelte';
 
+  export let dominantColours;
+  export let placeholders;
   export let posts;
+
+  onMount(() => {
+    if (browser) {
+      document.lazyloadInstance.update();
+    }
+  });
 
   const { author, siteUrl } = website;
 
@@ -77,6 +105,7 @@
     ogSquareImage,
     twitterImage,
   };
+  const sizes = '(max-width: 672px) calc(100vw - 32px), 672px';
 </script>
 
 <SEO {...seoProps} />
@@ -84,6 +113,32 @@
   <h1>Climate &mdash; Sveltekit Starter</h1>
   <h2>SvelteKit MDsveX (Markdown for Svelte) Blog</h2>
 </header>
+<picture>
+  <source
+    data-sizes={sizes}
+    data-srcset={meImageSrcsetWebp}
+    type="image/webp"
+    width="672"
+    height="448"
+  />
+  <source
+    data-sizes={sizes}
+    data-srcset={meImageSrcset}
+    type="image/jpeg"
+    width="672"
+    height="448"
+  />
+  <img
+    class="lazy"
+    alt={featuredImageAlt}
+    loading="eager"
+    decoding="async"
+    width="672"
+    height="448"
+    data-src={meImage}
+    src={placeholders[0]}
+  />
+</picture>
 <Card>
   <h2><span>About me</span></h2>
   <p>
@@ -97,5 +152,12 @@
 <style lang="scss">
   header > h2 {
     font-size: $font-size-3;
+  }
+
+  img {
+    border-radius: $spacing-1;
+    margin: $spacing-6 $spacing-0 $spacing-12;
+    max-width: 100%;
+    height: auto;
   }
 </style>

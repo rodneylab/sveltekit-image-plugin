@@ -20,7 +20,7 @@ specifiers:
   prettier-plugin-svelte: ^2.4.0
   reading-time: ^1.4.0
   sass: ^1.38.2
-  sharp: ^0.29.0
+  sharp: 0.28.2
   stylelint: ^13.13.1
   stylelint-a11y: ^1.2.3
   stylelint-config-recommended-scss: ^4.3.0
@@ -55,7 +55,7 @@ devDependencies:
   prettier-plugin-svelte: 2.4.0_prettier@2.3.2+svelte@3.42.4
   reading-time: 1.4.0
   sass: 1.38.2
-  sharp: 0.29.0
+  sharp: 0.28.2
   stylelint: 13.13.1
   stylelint-a11y: 1.2.3_stylelint@13.13.1
   stylelint-config-recommended-scss: 4.3.0_fd1d61e57b9553f3887f804324f52132
@@ -334,7 +334,7 @@ packages:
     dev: true
 
   /@imgix/js-core/3.2.1:
-    resolution: {integrity: sha512-Evw7rDybGuOH8sU39JIZUmDue1IjV6SXqrv4f52rb9SzIow/uV+L7ch+3dCFiFTU3YXg5qodP6snIzXCj3gZvQ==}
+    resolution: {integrity: sha512-Evw7rDybGuOH8sU39JIZUmDue1IjV6SXqrv4f52rb9SzIow/uV+L7ch+3dCFiFTU3YXg5qodP6snIzXCj3gZvQ==, tarball: '@imgix/js-core/-/js-core-3.2.1.tgz'}
     dependencies:
       js-base64: 3.6.1
       md5: 2.3.0
@@ -775,13 +775,6 @@ packages:
     resolution: {integrity: sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==}
     dependencies:
       color-convert: 1.9.3
-      color-string: 1.6.0
-    dev: true
-
-  /color/4.0.1:
-    resolution: {integrity: sha512-rpZjOKN5O7naJxkH2Rx1sZzzBgaiWECc6BYXjeCE6kF0kcASJYbUq02u7JqIHwCb/j3NhV+QhRL2683aICeGZA==}
-    dependencies:
-      color-convert: 2.0.1
       color-string: 1.6.0
     dev: true
 
@@ -1864,10 +1857,6 @@ packages:
     resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
     dev: true
 
-  /node-addon-api/4.1.0:
-    resolution: {integrity: sha512-Zz1o1BDX2VtduiAt6kgiUl8jX1Vm3NMboljFYKQJ6ee8AGfiTvM2mlZFI3xPbqjs80rCQgiVJI/DjQ/1QJ0HwA==}
-    dev: true
-
   /node-releases/1.1.75:
     resolution: {integrity: sha512-Qe5OUajvqrqDSy6wrWFmMwfJ0jVgwiw4T3KqmbTcZ62qW0gQkheXYhcFM1+lOVcGUoRxcEcfyvFMAnDgaF1VWw==}
     dev: true
@@ -2391,8 +2380,8 @@ packages:
     resolution: {integrity: sha1-BF+XgtARrppoA93TgrJDkrPYkPc=}
     dev: true
 
-  /sharp/0.28.3:
-    resolution: {integrity: sha512-21GEP45Rmr7q2qcmdnjDkNP04Ooh5v0laGS5FDpojOO84D1DJwUijLiSq8XNNM6e8aGXYtoYRh3sVNdm8NodMA==}
+  /sharp/0.28.2:
+    resolution: {integrity: sha512-CdmySbsQVe/+ZM2j9zzvUfWumM0L0iHj1kpxJMFuyWvSuBULebvGCdOLb1f5vbbBrIGroX714Fx1wiWaKniz4A==}
     engines: {node: '>=10'}
     requiresBuild: true
     dependencies:
@@ -2406,14 +2395,14 @@ packages:
       tunnel-agent: 0.6.0
     dev: true
 
-  /sharp/0.29.0:
-    resolution: {integrity: sha512-mdN1Up0eN+SwyForPls59dWO0nx64J1XRQYy5ZiKSADAccGYCB10UAGJHSVG9VObzJdhHqrVJzQcq6gx8USyoA==}
-    engines: {node: '>=12.13.0'}
+  /sharp/0.28.3:
+    resolution: {integrity: sha512-21GEP45Rmr7q2qcmdnjDkNP04Ooh5v0laGS5FDpojOO84D1DJwUijLiSq8XNNM6e8aGXYtoYRh3sVNdm8NodMA==}
+    engines: {node: '>=10'}
     requiresBuild: true
     dependencies:
-      color: 4.0.1
+      color: 3.2.1
       detect-libc: 1.0.3
-      node-addon-api: 4.1.0
+      node-addon-api: 3.2.1
       prebuild-install: 6.1.4
       semver: 7.3.5
       simple-get: 3.1.0

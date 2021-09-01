@@ -54,6 +54,9 @@
 
   import '$lib/styles/normalise.css';
   import '$lib/styles/index.scss';
+  import { browser } from '$app/env';
+  import lazyload from 'vanilla-lazyload';
+  import { onMount } from 'svelte';
 
   import { COPYRIGHT_ENTITY } from '$lib/constants/entities';
   import BlogPost from '$lib/components/BlogPost.svelte';
@@ -70,6 +73,10 @@
   import website from '$lib/config/website';
 
   export let post;
+
+  if (browser && !document.lazyloadInstance) {
+    document.lazyloadInstance = new lazyload();
+  }
 
   $: isBlogPost = post !== undefined;
 </script>
