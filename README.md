@@ -15,7 +15,7 @@
 
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/rodneylab/sveltekit-image-plugin)
 
-SvelteKit demo code for using vite-imagetools to add cached, responsive, Next-Gen images to a SvelteKit site with no cumulative layout shift. The code accompanies the <a aria-label="Open Rodney Lab blog post on Svelte Kit Image plugin" href="https:/rodneylab.com/sveltekit-image-plugin/">article on the SvelteKit Image Plugin</a>. If you have any questions, please drop a comment at the bottom of that page.
+SvelteKit demo code for using vite-imagetools to add cached, responsive, Next-Gen images to a SvelteKit site with no cumulative layout shift. The code accompanies the <a aria-label="Open Rodney Lab blog post on Svelte Kit Image plugin" href="https://rodneylab.com/sveltekit-image-plugin/">article on the SvelteKit Image Plugin</a>. If you have any questions, please drop a comment at the bottom of that page.
 
 ## Building and previewing the site
 
