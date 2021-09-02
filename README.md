@@ -11,7 +11,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/936d91dd-30c2-4b7f-8d59-bdc23873ad91/deploy-status)](https://app.netlify.com/sites/elegant-bose-bf6297/deploys)
 
-# sveltekit-nextgen-background
+# sveltekit-image-plugin
 
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/rodneylab/sveltekit-image-plugin)
 
