@@ -22,9 +22,8 @@
     ]);
 
     if (postsResponse.ok && placeholdersResponse.ok) {
-      const { posts } = await postsResponse.json();
       return {
-        props: { posts, ...(await placeholdersResponse.json()) },
+        props: { ...(await postsResponse.json()), ...(await placeholdersResponse.json()) },
       };
     }
 
@@ -34,9 +33,13 @@
 
 <script>
   import { browser } from '$app/env';
-  import meImageSrcsetWebp from '$lib/assets/me.jpg?w=1344;672;336&format=webp&srcset';
-  import meImageSrcset from '$lib/assets/me.jpg?w=1344;672;336&srcset';
-  import meImage from '$lib/assets/me.jpg?w=672';
+  import ogSquareImageSrc from '$lib/assets/home/home-open-graph-square.jpg';
+  import ogImageSrc from '$lib/assets/home/home-open-graph.jpg';
+  import twitterImageSrc from '$lib/assets/home/home-twitter.jpg';
+  import featuredImageSrc from '$lib/assets/home/home.jpg';
+  import meImageSrcsetWebp from '$lib/assets/me.jpg?width=1344;672;336&format=webp&srcset';
+  import meImageSrcset from '$lib/assets/me.jpg?width=1344;672;336&srcset';
+  import meImage from '$lib/assets/me.jpg?width=672';
   import BlogRoll from '$lib/components/BlogRoll.svelte';
   import Card from '$lib/components/Card.svelte';
   import SEO from '$lib/components/SEO/index.svelte';
@@ -46,12 +49,6 @@
   export let dominantColours;
   export let placeholders;
   export let posts;
-
-  import lazyload from 'vanilla-lazyload';
-
-  if (browser && !document.lazyloadInstance) {
-    document.lazyloadInstance = new lazyload();
-  }
 
   onMount(() => {
     if (browser) {
@@ -73,23 +70,23 @@
   const featuredImageAlt =
     'picture of a person with long, curly hair, wearing a red had taking a picture with an analogue camera';
   const featuredImage = {
-    url: 'https://rodneylab-climate-starter.imgix.net/home-open-graph.jpg?ixlib=js-3.2.1&w=1200&h=627&s=81c4407df7d9782806b78d698dbcbc75',
+    url: featuredImageSrc,
     alt: featuredImageAlt,
     width: 672,
     height: 448,
     caption: 'Home page',
   };
   const ogImage = {
-    url: 'https://rodneylab-climate-starter.imgix.net/home-open-graph.jpg?ixlib=js-3.2.1&w=1200&h=627&s=81c4407df7d9782806b78d698dbcbc75',
+    url: ogImageSrc,
     alt: featuredImageAlt,
   };
   const ogSquareImage = {
-    url: 'https://rodneylab-climate-starter.imgix.net/home-open-graph-square.jpg?ixlib=js-3.2.1&w=400&h=400&s=f98299427341f6f66d1c2460bad224e2',
+    url: ogSquareImageSrc,
     alt: featuredImageAlt,
   };
 
   const twitterImage = {
-    url: 'https://rodneylab-climate-starter.imgix.net/home-twitter.jpg?ixlib=js-3.2.0&w=800&h=418&s=1b08b7276d34486234a4e2c1ccb49a74',
+    url: twitterImageSrc,
     alt: featuredImageAlt,
   };
   const entityMeta = {
@@ -142,7 +139,7 @@
     width="672"
     height="448"
     data-src={meImage}
-    src={placeholders[0]}
+    src={dominantColours[0]}
   />
 </picture>
 <Card>

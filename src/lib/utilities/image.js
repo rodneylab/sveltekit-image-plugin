@@ -2,10 +2,19 @@ import sharp from 'sharp';
 
 export const IMAGE_DIR = '/src/lib/assets/';
 
-export const dominantColour = async ({ source }) => {
+export async function dominantColour({ source }) {
   try {
     const image = sharp(source);
     const { dominant } = await image.stats();
+    return dominant;
+  } catch (error) {
+    console.error('Error determining dominant colour: ', source);
+  }
+}
+
+export const dominantColourPlaceholder = async ({ source }) => {
+  try {
+    const dominant = await dominantColour({ source });
     const { r, g, b } = dominant;
     const buffer = await sharp({
       create: {
@@ -23,7 +32,7 @@ export const dominantColour = async ({ source }) => {
   }
 };
 
-export const lowResolutionPlaceholder = async ({ source }) => {
+export async function lowResolutionPlaceholder({ source }) {
   try {
     const image = sharp(source);
     const buffer = await image
@@ -37,8 +46,18 @@ export const lowResolutionPlaceholder = async ({ source }) => {
         quantisationTable: 2,
       })
       .toBuffer({ resolveWithObject: false });
-    return `data:image/jpeg;base64,${buffer.toString('base64')}`;
+    return `data:image/jpeg;base64,${(await buffer).toString('base64')}`;
   } catch (error) {
     console.error('Error generating low resolution placeholder: ', source);
   }
-};
+}
+
+export async function metadata({ source }) {
+  try {
+    const image = sharp(source);
+    const { format, height, width } = await image.metadata();
+    return { format, height, width };
+  } catch (error) {
+    console.error('Error determining image meta: ', source);
+  }
+}

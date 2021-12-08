@@ -15,10 +15,16 @@
 
   import '$lib/styles/normalise.css';
   import '$lib/styles/index.scss';
+  import lazyload from 'vanilla-lazyload';
+  import { browser } from '$app/env';
 
   import Footer from '$lib/components/Footer.svelte';
   import Header from '$lib/components/Header.svelte';
   import PWA from '$lib/components/PWA.svelte';
+
+  if (browser && !document.lazyloadInstance) {
+    document.lazyloadInstance = new lazyload();
+  }
 </script>
 
 <PWA />
