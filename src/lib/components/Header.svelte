@@ -8,8 +8,8 @@
   >
   <nav class="nav">
     <ul>
-      <li><a sveltekit:prefetch href="/.">Home</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a sveltekit:prefetch rel="external" href="/.">Home</a></li>
+      <li><a sveltekit:prefetch rel="external" href="/contact">Contact</a></li>
     </ul>
   </nav>
 </header>
