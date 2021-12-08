@@ -22,8 +22,8 @@ SvelteKit demo code for using vite-imagetools to add cached, responsive, Next-Ge
 If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-git clone https://github.com/rodneylab/sveltekit-image-plugin.git my-new-mdsvex-blog
-cd sveltekit-iamge-plugin
+git clone https://github.com/rodneylab/sveltekit-image-plugin.gi
+cd sveltekit-image-plugin
 pnpm install # or npm install
 pnpm run dev
 ```

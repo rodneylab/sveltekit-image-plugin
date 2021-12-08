@@ -47,6 +47,12 @@
   export let placeholders;
   export let posts;
 
+  import lazyload from 'vanilla-lazyload';
+
+  if (browser && !document.lazyloadInstance) {
+    document.lazyloadInstance = new lazyload();
+  }
+
   onMount(() => {
     if (browser) {
       document.lazyloadInstance.update();

@@ -4,7 +4,6 @@ specifiers:
   '@fontsource/lato': ^4.5.0
   '@fontsource/lora': ^4.5.1
   '@fontsource/source-sans-pro': ^4.5.1
-  '@imgix/js-core': ^3.2.2
   '@rodneylab/sveltekit-components': ^0.2.4
   '@sveltejs/adapter-static': ^1.0.0-next.21
   '@sveltejs/kit': ^1.0.0-next.201
@@ -19,7 +18,7 @@ specifiers:
   object-hash: ^2.2.0
   prettier: ~2.5.1
   prettier-plugin-svelte: ^2.5.0
-  reading-time: ^1.5.0
+  reading-time: '1.4'
   sass: ^1.44.0
   sharp: 0.28.2
   stylelint: ^14.1.0
@@ -41,7 +40,6 @@ devDependencies:
   '@fontsource/lato': 4.5.0
   '@fontsource/lora': 4.5.1
   '@fontsource/source-sans-pro': 4.5.1
-  '@imgix/js-core': 3.2.2
   '@rodneylab/sveltekit-components': 0.2.4
   '@sveltejs/adapter-static': 1.0.0-next.21
   '@sveltejs/kit': 1.0.0-next.201_sass@1.44.0+svelte@3.44.2
@@ -55,7 +53,7 @@ devDependencies:
   object-hash: 2.2.0
   prettier: 2.5.1
   prettier-plugin-svelte: 2.5.0_prettier@2.5.1+svelte@3.44.2
-  reading-time: 1.5.0
+  reading-time: 1.4.0
   sass: 1.44.0
   sharp: 0.28.2
   stylelint: 14.1.0
@@ -135,13 +133,6 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
-    dev: true
-
-  /@imgix/js-core/3.2.2:
-    resolution: {integrity: sha512-FtgDn0IRCS+qchQJCpYdTWi2ijRbYci/8QihFSbDE1sAuf6/udrq8meyhrextkhcTxSy3fIFEBpLPHYItXChYg==}
-    dependencies:
-      js-base64: 3.7.2
-      md5: 2.3.0
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -445,10 +436,6 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /charenc/0.0.2:
-    resolution: {integrity: sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=}
-    dev: true
-
   /cheap-watch/1.0.4:
     resolution: {integrity: sha512-QR/9FrtRL5fjfUJBhAKCdi0lSRQ3rVRRum3GF9wDKp2TJbEIMGhUEr2yU8lORzm9Isdjx7/k9S0DFDx+z5VGtw==}
     engines: {node: '>=8'}
@@ -550,10 +537,6 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
-    dev: true
-
-  /crypt/0.0.2:
-    resolution: {integrity: sha1-iNf/fsDfuG9xPch7u0LQRNPmxBs=}
     dev: true
 
   /cssesc/3.0.0:
@@ -1300,10 +1283,6 @@ packages:
       binary-extensions: 2.2.0
     dev: true
 
-  /is-buffer/1.1.6:
-    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
-    dev: true
-
   /is-core-module/2.8.0:
     resolution: {integrity: sha512-vd15qHsaqrRL7dtH6QNuy0ndJmRDrS9HAM1CAiSifNUFv4x1a0CCVsj18hJ1mShxIG6T2i1sO78MkP56r0nYRw==}
     dependencies:
@@ -1364,10 +1343,6 @@ packages:
 
   /isexe/2.0.0:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
-    dev: true
-
-  /js-base64/3.7.2:
-    resolution: {integrity: sha512-NnRs6dsyqUXejqk/yv2aiXlAvOs56sLkX6nUdeaNezI5LFFLlsZjOThmwnrcwh5ZZRwZlCMnVAY3CvhIhoVEKQ==}
     dev: true
 
   /js-tokens/4.0.0:
@@ -1475,14 +1450,6 @@ packages:
 
   /mathml-tag-names/2.1.3:
     resolution: {integrity: sha512-APMBEanjybaPzUrfqU0IMU5I0AswKMH7k8OTLs0vvV4KZpExkTkY87nR/zpbuTPj+gARop7aGUbl11pnDfW6xg==}
-    dev: true
-
-  /md5/2.3.0:
-    resolution: {integrity: sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==}
-    dependencies:
-      charenc: 0.0.2
-      crypt: 0.0.2
-      is-buffer: 1.1.6
     dev: true
 
   /mdsvex/0.9.8_svelte@3.44.2:
@@ -1921,8 +1888,8 @@ packages:
       picomatch: 2.3.0
     dev: true
 
-  /reading-time/1.5.0:
-    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
+  /reading-time/1.4.0:
+    resolution: {integrity: sha512-0I9aP583rqQhm6T6Y+pYgYaM4w649VHgQPC24xSWXpn/4qRs08Zu6KgXRf0da6/k7IHoC6idm76fU6vz4mmzHQ==}
     dev: true
 
   /redent/3.0.0:
