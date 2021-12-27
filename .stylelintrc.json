@@ -1,6 +1,10 @@
 {
   "extends": "stylelint-config-recommended-scss",
+  "plugins": ["stylelint-a11y"],
   "rules": {
+    "a11y/media-prefers-reduced-motion": true,
+    "a11y/no-outline-none": true,
+    "a11y/selector-pseudo-class-focus": true,
     "color-named": "never",
     "font-family-name-quotes": "always-where-required",
     "font-weight-notation": "named-where-possible",
@@ -21,5 +25,6 @@
     ]
   },
   "ignoreFiles": ["node_modules/*", "src/assets/**", "build/**", "src/lib/styles/normalise.css"],
-  "defaultSeverity": "error"
+  "defaultSeverity": "error",
+  "customSyntax": "postcss-html"
 }
