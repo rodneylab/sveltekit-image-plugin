@@ -2,7 +2,7 @@
   "name": "sveltekit-blog-mdx",
   "version": "0.5.1",
   "scripts": {
-    "dev": "svelte-kit dev --port 3030",
+    "dev": "svelte-kit dev --port 3000",
     "build": "npm run generate:manifest && svelte-kit build",
     "preview": "svelte-kit preview --port 3000",
     "check": "svelte-check --fail-on-warnings",
@@ -53,12 +53,6 @@
   },
   "bugs": {
     "url": "https://github.com/rodneylab/sveltekit-seo/issues"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "pnpm run prettier:check && pnpm run lint:scss"
-    }
   },
   "type": "module",
   "dependencies": {
