@@ -17,8 +17,8 @@
     "@fontsource/lora": "^4.5.1",
     "@fontsource/source-sans-pro": "^4.5.1",
     "@rodneylab/sveltekit-components": "^0.2.5",
-    "@sveltejs/adapter-static": "^1.0.0-next.22",
-    "@sveltejs/kit": "^1.0.0-next.202",
+    "@sveltejs/adapter-static": "^1.0.0-next.23",
+    "@sveltejs/kit": "^1.0.0-next.203",
     "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
     "eslint": "^8.5.0",
@@ -32,7 +32,7 @@
     "prettier-plugin-svelte": "^2.5.1",
     "reading-time": "~1.4.0",
     "sass": "^1.45.1",
-    "sharp": "0.28.2",
+    "sharp": "0.29.3",
     "stylelint": "^14.2.0",
     "stylelint-config-recommended-scss": "^5.0.2",
     "stylelint-config-standard": "^24.0.0",
@@ -42,7 +42,7 @@
     "svelte-preprocess": "^4.10.1",
     "svelte-preprocess-import-assets": "^0.1.3",
     "vanilla-lazyload": "^17.5.0",
-    "vite-imagetools": "^4.0.2"
+    "vite-imagetools": "^4.0.3"
   },
   "repository": {
     "type": "git",
