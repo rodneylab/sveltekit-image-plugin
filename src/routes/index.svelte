@@ -47,7 +47,8 @@
   import { onMount } from 'svelte';
 
   export let dominantColours;
-  export let placeholders;
+  /* uncommment if using low reoslution placeholders instead of dominant colour blocks */
+  // export let placeholders;
   export let posts;
 
   onMount(() => {
