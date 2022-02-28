@@ -3,7 +3,7 @@
    * @type {import('@sveltejs/kit').Load}
    */
   export async function load({ fetch }) {
-    const url = './index.json';
+    const url = './index-endpoint.json';
     const postsPromise = fetch(url);
     const placeholdersPromise = fetch('/api/image-placeholders.json', {
       method: 'POST',

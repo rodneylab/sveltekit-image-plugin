@@ -6,9 +6,9 @@ import {
 import path from 'path';
 const __dirname = path.resolve();
 
-export const post = async (request) => {
+export const post = async ({ request }) => {
   try {
-    const { images } = request.body;
+    const { images } = await request.json();
 
     const dominantColourPromises = images.map((element) => {
       const source = path.join(__dirname, IMAGE_DIR, element);
