@@ -1,6 +1,8 @@
 {
   "name": "sveltekit-blog-mdx",
   "version": "0.5.1",
+  "license": "BSD-3-Clause",
+  "description": "SvelteKit Image Plugin: how to use the vite-imagetools plugin to bring responsive images in next-gen formats, like WebP, to your Svelte App.",
   "scripts": {
     "dev": "svelte-kit dev --port 3000",
     "build": "npm run generate:manifest && svelte-kit build",
@@ -52,10 +54,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rodneylab/sveltekit-seo"
+    "url": "https://github.com/rodneylab/sveltekit-image-plugin"
   },
   "bugs": {
-    "url": "https://github.com/rodneylab/sveltekit-seo/issues"
+    "url": "https://github.com/rodneylab/sveltekit-image-plugin/issues"
   },
   "type": "module",
   "dependencies": {
