@@ -13,7 +13,7 @@
 
 # sveltekit-image-plugin
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/rodneylab/sveltekit-image-plugin)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/rodneylab/sveltekit-image-plugin)
 
 SvelteKit demo code for using vite-imagetools to add cached, responsive, Next-Gen images to a SvelteKit site with no cumulative layout shift. The code accompanies the <a aria-label="Open Rodney Lab blog post on Svelte Kit Image plugin" href="https://rodneylab.com/sveltekit-image-plugin/">article on the SvelteKit Image Plugin</a>. If you have any questions, please drop a comment at the bottom of that page.
 
@@ -35,3 +35,5 @@ pnpm run build
 ```
 
 > You can preview the built app with `pnpm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+
+Feel free to jump into the [Rodney Lab matrix chat room](https://matrix.to/#/%23rodney:matrix.org).
