@@ -6,7 +6,7 @@ import {
 import path from 'path';
 const __dirname = path.resolve();
 
-export const post = async ({ request }) => {
+export async function POST({ request }) {
   try {
     const { images } = await request.json();
 
@@ -33,4 +33,4 @@ export const post = async ({ request }) => {
       error: 'Error retrieving data',
     };
   }
-};
+}
