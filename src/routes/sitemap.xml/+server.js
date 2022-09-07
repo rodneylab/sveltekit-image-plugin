@@ -15,6 +15,8 @@ import website from '$lib/config/website';
 import { BLOG_PATH, getPosts, getPostsContent } from '$lib/utilities/blog';
 import path from 'path';
 
+export const prerender = true;
+
 const { siteUrl } = website;
 
 const render = (pages, posts) => `<?xml version="1.0" encoding="UTF-8" ?>

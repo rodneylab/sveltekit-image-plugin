@@ -16,7 +16,7 @@
   import '$lib/styles/normalise.css';
   import '$lib/styles/index.scss';
   import lazyload from 'vanilla-lazyload';
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
 
   import Footer from '$lib/components/Footer.svelte';
   import Header from '$lib/components/Header.svelte';

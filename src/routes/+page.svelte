@@ -1,38 +1,5 @@
-<script context="module">
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
-  export async function load({ fetch }) {
-    const url = './index-endpoint.json';
-    const postsPromise = fetch(url);
-    const placeholdersPromise = fetch('/api/image-placeholders.json', {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        images: ['me.jpg'],
-      }),
-    });
-
-    const [postsResponse, placeholdersResponse] = await Promise.all([
-      postsPromise,
-      placeholdersPromise,
-    ]);
-
-    if (postsResponse.ok && placeholdersResponse.ok) {
-      return {
-        props: { ...(await postsResponse.json()), ...(await placeholdersResponse.json()) },
-      };
-    }
-
-    return {};
-  }
-</script>
-
 <script>
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   import ogSquareImageSrc from '$lib/assets/home/home-open-graph-square.jpg';
   import ogImageSrc from '$lib/assets/home/home-open-graph.jpg';
   import twitterImageSrc from '$lib/assets/home/home-twitter.jpg';
@@ -46,10 +13,8 @@
   import website from '$lib/config/website';
   import { onMount } from 'svelte';
 
-  export let dominantColours;
-  /* uncommment if using low reoslution placeholders instead of dominant colour blocks */
-  // export let placeholders;
-  export let posts;
+  export let data;
+  const { dominantColours, placeholders, posts } = data;
 
   onMount(() => {
     if (browser) {
