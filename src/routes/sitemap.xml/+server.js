@@ -1,19 +1,5 @@
-/* This sitemap will be served by SSR sites only, for static sites, incorporate the command
- *
- *   node ./generate-sitemap.js
- *
- * into your build script (before build).  This will create sitemap.xml in the static/ folder
- *
- * alternatively run
- *
- *   pnpm run generate:sitemap
- *
- * as and when static sitemap needs creating/updating
- */
-
 import website from '$lib/config/website';
-import { BLOG_PATH, getPosts, getPostsContent } from '$lib/utilities/blog';
-import path from 'path';
+import { error } from '@sveltejs/kit';
 
 export const prerender = true;
 
@@ -38,48 +24,47 @@ const render = (pages, posts) => `<?xml version="1.0" encoding="UTF-8" ?>
 	<url>
 	  <loc>${element}</loc>
 		<lastmod>${`${process.env.VITE_BUILD_TIME}`}</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.7</priority>
 	</url>`,
     )
     .join('\n')}
-	
+
 	${posts
     .map((element) => {
       const { lastUpdated, slug } = element;
       return `
 	<url>
-	  <loc>${siteUrl}/${slug}/</loc>
-		<lastmod>${`${lastUpdated}`}</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>0.7</priority>
+	  <loc>${siteUrl}/${slug}</loc>
+		<lastmod>${`${new Date(lastUpdated).toISOString()}`}</lastmod>
 	</url>
 	`;
     })
     .join('')}
 </urlset>`;
 
-export async function GET() {
-  const __dirname = path.resolve();
-  const location = path.join(__dirname, BLOG_PATH);
-  const postsContent = await getPostsContent(location);
-  const posts = await getPosts(postsContent, false);
-
-  const pages = Object.keys(import.meta.glob('/src/routes/**/!(_)*.svelte'))
-    .filter((page) => {
-      const filters = ['slug]', '_', 'private'];
-
-      return !filters.find((filter) => page.includes(filter));
-    })
-    .map((page) =>
-      page.replace('/src/routes', siteUrl).replace('/index.svelte', '').replace('.svelte', ''),
+/** @type {import('./$types').RequestHandler} */
+export async function GET({ setHeaders }) {
+  try {
+    const mdModules = import.meta.glob('../../content/blog/**/index.md');
+    const posts = await Promise.all(
+      Object.keys(mdModules).map(async (path) => {
+        const slug = path.split('/').at(-2);
+        const { metadata } = await mdModules[path]();
+        const { lastUpdated } = metadata;
+        return { lastUpdated, slug };
+      }),
     );
 
-  return {
-    body: render(pages, posts),
-    headers: {
-      'Cache-Control': `max-age=0, s-max-age=${600}`,
+    const pagePaths = ['', '/contact'];
+    const pages = pagePaths.map((element) => `${siteUrl}${element}`);
+
+    setHeaders({
+      'Cache-Control': 'max-age=0, s-max-age=600',
       'Content-Type': 'application/xml',
-    },
-  };
+    });
+
+    return new Response(render(pages, posts));
+  } catch (err) {
+    console.error(`Error in sitemap.xml: ${err}`);
+    throw error(500, err);
+  }
 }
