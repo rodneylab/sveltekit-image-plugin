@@ -25,7 +25,7 @@
   };
 
   const handleMouseDown = async () => {
-    goto(`/${slug}/`);
+    goto(`/${slug}`);
   };
 
   const date = dayjs(datePublished);
@@ -39,7 +39,7 @@
   on:mouseleave={handleMouseLeave}
   on:mousedown={handleMouseDown}
 >
-  <div class="content">
+  <div class="content" data-sveltekit-preload-data="hover">
     <h3>
       <a aria-label={`Open ${postTitle} blog post`} aria-describedby={idString} href={`/${slug}/`}
         >{postTitle}</a

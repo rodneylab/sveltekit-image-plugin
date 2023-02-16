@@ -13,9 +13,10 @@
     postTitle: title,
     seoMetaDescription: metadescription,
     slug,
+    timeToRead,
   } = post;
   const { ogImage, ogSquareImage, src: featuredImage, twitterImage } = imageData;
-  const timeToRead = Math.ceil(readingTime(post.body).minutes);
+
   const breadcrumbs = [
     {
       name: 'Home',
